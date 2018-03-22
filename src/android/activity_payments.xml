@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spinyt.stripe.PaymentsActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="48dp"
+        android:paddingTop="8dp"
+        android:elevation="4dp"
+        android:layout_height="56dp">
+        <ImageButton
+            android:id="@+id/button_back"
+            android:src="@drawable/arrow_back_white"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"/>
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:stripe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/stripe_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="72dp"
+        android:layout_height="wrap_content">
+        <com.stripe.android.view.CardInputWidget
+          android:id="@+id/card_input_widget"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          stripe:cardTextErrorColor="@color/required_color"
+        />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress_bar"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="12dp"
+                android:progressDrawable="@drawable/circular_progress_bar" />
+            <Button 
+                android:id="@+id/add_card"
+                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:text="@string/add_card"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/button_background"
+                android:textSize="16dp"
+                android:elevation="4dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- Test for Korben -->
+    <!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:stripe="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/stripe_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="72dp"
+        android:layout_height="match_parent">
+         <EditText
+             android:id="@+id/plain_text_input"
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:inputType="number"
+             android:hint="1234"/>
+    </LinearLayout> -->
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.spinyt.stripe" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>Stripe</name>
+	<js-module name="Stripe" src="www/Stripe.js">
+		<clobbers target="Stripe" />
+	</js-module>
+	<dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="StripePlugin">
+				<param name="android-package" value="com.spinyt.stripe.StripePlugin" />
+			</feature>
+		</config-file>
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+			<activity android:label="Credit Card" android:name="com.spinyt.stripe.PaymentsActivity" />
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" />
+		<source-file src="src/android/StripePlugin.java" target-dir="src/com/spinyt/stripe" />
+		<source-file src="src/android/PaymentsActivity.java" target-dir="src/com/spinyt/stripe" />
+		<source-file src="src/android/activity_payments.xml" target-dir="res/layout" /><source-file src="src/android/Lato-Regular.ttf" target-dir="assets/fonts" />
+		<source-file src="src/android/arrow_back_white.xml" target-dir="res/drawable" />
+		<source-file src="src/android/button_background.xml" target-dir="res/drawable" />
+		<source-file src="src/android/circular_progress_bar.xml" target-dir="res/drawable" />
+		<resource-file src="src/android/color_definitions.xml" target="res/values/color_definitions.xml" />
+		<resource-file src="src/android/string_definitions.xml" target="res/values/string_definitions.xml" />
+		<resource-file src="src/android/string_definitions_fr.xml" target="res/values-fr/string_definitions.xml" />
+		<framework src="com.stripe:stripe-android:6.1.2" />
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="StripePlugin">
+				<param name="ios-package" value="StripePlugin" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/StripePlugin.swift" />
+		<source-file src="src/ios/CardFieldViewController.swift" />
+		<framework src="src/ios/Stripe.framework" custom="true" />
+		<!-- <framework src="Stripe" type="podspec" spec="~> 12.1.2" /> -->
+	</platform>
+</plugin>
