@@ -25,6 +25,20 @@ plugin.prototype.setPublishableKey = function(key) {
 }
 
 plugin.prototype.open = function(color = this.color, title = 'Payments', success, failure) {
+
+	if (typeof color === 'function') {
+		success = color;
+		color = this.color;
+		if (typeof title === 'function') {
+			failure = title;
+			title = 'Payments';
+		}
+	} else if (typeof title === 'function') {
+		failure = success;
+		success = title;
+		title = 'Payments';
+	}
+
 	var key = this.key
 	this.setColor(color);
 	if (success) {
