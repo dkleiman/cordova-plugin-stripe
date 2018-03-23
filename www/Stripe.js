@@ -24,19 +24,19 @@ plugin.prototype.setPublishableKey = function(key) {
 	return this;
 }
 
-plugin.prototype.open = function(color = this.color, title = 'Payments', success, failure) {
+plugin.prototype.open = function(color = this.color, title = this.title, success, failure) {
 
 	if (typeof color === 'function') {
 		success = color;
 		color = this.color;
 		if (typeof title === 'function') {
 			failure = title;
-			title = 'Payments';
+			title = this.title;
 		}
 	} else if (typeof title === 'function') {
 		failure = success;
 		success = title;
-		title = 'Payments';
+		title = this.title;
 	}
 
 	var key = this.key
@@ -53,6 +53,11 @@ plugin.prototype.open = function(color = this.color, title = 'Payments', success
 
 plugin.prototype.setColor = function(color) {
 	this.color = color;
+	return this;
+}
+
+plugin.prototype.setTitle = function(title) {
+	this.title = title;
 	return this;
 }
 
