@@ -33,7 +33,6 @@
 			</feature>
 		</config-file>
 		<source-file src="src/ios/StripePlugin.swift" />
-		<source-file src="src/ios/CardFieldViewController.swift" />
 		<framework src="src/ios/Stripe.framework" custom="true" />
 		<!-- <framework src="Stripe" type="podspec" spec="~> 12.1.2" /> -->
 	</platform>
