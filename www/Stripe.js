@@ -21,11 +21,10 @@ function colorMultiply(hex, alpha) {
 
 plugin.prototype.setPublishableKey = function(key) {
 	this.key = key;
+	return this;
 }
 
-plugin.prototype.open = function(color, title, success, failure) {
-	color = color || this.color;
-	title = title || 'Payments';
+plugin.prototype.open = function(color = this.color, title = 'Payments', success, failure) {
 	var key = this.key
 	this.setColor(color);
 	if (success) {
@@ -40,6 +39,7 @@ plugin.prototype.open = function(color, title, success, failure) {
 
 plugin.prototype.setColor = function(color) {
 	this.color = color;
+	return this;
 }
 
 module.exports = new plugin();
