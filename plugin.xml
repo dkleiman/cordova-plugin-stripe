@@ -14,7 +14,11 @@
 		<config-file parent="/manifest/application" target="AndroidManifest.xml">
 			<activity android:label="Credit Card" android:name="com.spinyt.stripe.PaymentsActivity" />
 		</config-file>
-		<config-file parent="/*" target="AndroidManifest.xml" />
+		<!-- This is a hack, should probably move these permissions into an empty plugin -->
+		<config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+		<!-- <config-file parent="/*" target="AndroidManifest.xml" /> -->
 		<source-file src="src/android/StripePlugin.java" target-dir="src/com/spinyt/stripe" />
 		<source-file src="src/android/PaymentsActivity.java" target-dir="src/com/spinyt/stripe" />
 		<source-file src="src/android/activity_payments.xml" target-dir="res/layout" /><source-file src="src/android/Lato-Regular.ttf" target-dir="assets/fonts" />

@@ -79,6 +79,8 @@ public class PaymentsActivity extends Activity {
 		ImageButton back_button = (ImageButton) findViewById(this.getId("button_back", package_name));
 		back_button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				Intent intent = new Intent();
+				setResult(Activity.RESULT_CANCELED, intent);
 				finish();
 			}
 		});

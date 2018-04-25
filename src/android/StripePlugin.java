@@ -45,6 +45,8 @@ public class StripePlugin extends CordovaPlugin {
             String token = extras.getString("token"); // data parameter will be sent from the other activity.
             PUBLIC_CALLBACKS.success(token);
             return;
+        } else {
+            PUBLIC_CALLBACKS.error("User cancelled");
         }
         // Handle other results if exists.
         super.onActivityResult(requestCode, resultCode, data);

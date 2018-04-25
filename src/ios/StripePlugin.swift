@@ -22,6 +22,8 @@ private var COMMAND = CDVInvokedUrlCommand.init()
 	}
 
 	func addCardViewControllerDidCancel(_ addCardViewController: STPAddCardViewController) {
+        let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "User cancelled")
+        self.commandDelegate!.send(pluginResult, callbackId: COMMAND.callbackId)
         let appDelegate = UIApplication.shared.delegate as! CDVAppDelegate
         appDelegate.window.rootViewController = self.viewController
     }
@@ -30,6 +32,7 @@ private var COMMAND = CDVInvokedUrlCommand.init()
     
     	let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: token.tokenId)
     	self.commandDelegate!.send(pluginResult, callbackId: COMMAND.callbackId)
-    	addCardViewControllerDidCancel(addCardViewController)
+    	let appDelegate = UIApplication.shared.delegate as! CDVAppDelegate
+        appDelegate.window.rootViewController = self.viewController
 	}
 }
