@@ -24,7 +24,7 @@ plugin.prototype.setPublishableKey = function(key) {
 	return this;
 }
 
-plugin.prototype.open = function(color = this.color, toolBarColor, title = this.title, success, failure) {
+plugin.prototype.open = function(color = this.color, statusBarColor, toolBarColor, title = this.title, success, failure) {
 
 	if (typeof color === 'function') {
 		success = color;
@@ -43,11 +43,11 @@ plugin.prototype.open = function(color = this.color, toolBarColor, title = this.
 	this.setColor(color);
 	if (success) {
 		failure = failure || function(err) {};
-		exec(success, failure, "StripePlugin", "payments_activity", [color, colorMultiply(toolBarColor, 0.8), toolBarColor, title, key]);
+		exec(success, failure, "StripePlugin", "payments_activity", [color, statusBarColor, toolBarColor, title, key]);
 		return;
 	}
 	return new Promise(function(resolve, reject) {
-		exec(resolve, reject, "StripePlugin", "payments_activity", [color, colorMultiply(toolBarColor, 0.8), toolBarColor, title, key]);
+		exec(resolve, reject, "StripePlugin", "payments_activity", [color, statusBarColor, toolBarColor, title, key]);
 	});
 }
 
