@@ -27,7 +27,7 @@ public class StripePlugin extends CordovaPlugin {
         Context context = cordova.getActivity().getApplicationContext();
         PUBLIC_CALLBACKS = callbackContext;
         if (action.equals("payments_activity")) {
-            this.openStripeActivity(context, args.getString(0), args.getString(1), args.getString(2), args.getString(3));
+            this.openStripeActivity(context, args.getString(0), args.getString(1), args.getString(2), args.getString(3), args.getString(4));
             return true;
         }
 
@@ -52,10 +52,11 @@ public class StripePlugin extends CordovaPlugin {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void openStripeActivity(Context context, String main_color, String status_bar_color, String title, String stripe_key) {
+    private void openStripeActivity(Context context, String main_color, String status_bar_color, String tool_bar_color, String title, String stripe_key) {
         Intent intent = new Intent(context, PaymentsActivity.class);
         intent.putExtra("main_color", main_color);
         intent.putExtra("status_bar_color", status_bar_color);
+        intent.putExtra("tool_bar_color", tool_bar_color);
         intent.putExtra("title", title);
         intent.putExtra("stripe_key", stripe_key);
         this.cordova.startActivityForResult((CordovaPlugin) this, intent, 0);

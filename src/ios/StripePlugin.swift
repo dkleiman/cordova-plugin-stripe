@@ -7,7 +7,7 @@ private var COMMAND = CDVInvokedUrlCommand.init()
 	@objc(payments_activity:)
 	func payments_activity(_ command: CDVInvokedUrlCommand) {
 		COMMAND = command 
-	    let key = command.arguments[3] as? String ?? ""
+	    let key = command.arguments[4] as? String ?? ""
 
 	    STPPaymentConfiguration.shared().publishableKey = key
 

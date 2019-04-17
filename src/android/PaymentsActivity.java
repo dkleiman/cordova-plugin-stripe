@@ -60,12 +60,13 @@ public class PaymentsActivity extends Activity {
 		Bundle extras = getIntent().getExtras();
 		String main_color = extras.getString("main_color");
 		String status_bar_color = extras.getString("status_bar_color");
+		String tool_car_color = extras.getString("tool_bar_color");
 		String title = extras.getString("title");
 		String stripe_key = extras.getString("stripe_key");
 
 		// Toolbar
 		LinearLayout toolbar = (LinearLayout) this.findViewById(this.getId("toolbar", package_name));
-		toolbar.setBackgroundColor(Color.parseColor(main_color));
+		toolbar.setBackgroundColor(Color.parseColor(tool_bar_color));
 
 		TextView titleView = (TextView) findViewById(this.getId("title_text", package_name));
 		Typeface custom_font = Typeface.createFromAsset(getAssets(),	"fonts/Lato-Regular.ttf");
